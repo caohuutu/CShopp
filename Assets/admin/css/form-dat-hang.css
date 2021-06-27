@@ -1,0 +1,28 @@
+﻿form .fas {
+    color: black;
+}
+
+
+
+    .wrap h2 {
+        font-weight: normal;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .wrap .form-control {
+        border: 1px solid #0abde3;
+        outline: none;
+        border-radius: 4px;
+        margin-left: 5px; 
+        align-items: center;
+    }
+.btn{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.content-order{
+    
+}

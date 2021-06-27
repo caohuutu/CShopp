@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bc_webModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ctdondathang">
+    <Key>
+      <PropertyRef Name="IDdonhang" />
+    </Key>
+    <Property Name="IDdonhang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDsp" Type="int" Nullable="false" />
+    <Property Name="soluong" Type="int" />
+    <Property Name="gia" Type="int" />
+    <Property Name="tongtien" Type="int" />
+  </EntityType>
+  <EntityType Name="dondathang">
+    <Key>
+      <PropertyRef Name="madondathang" />
+    </Key>
+    <Property Name="madondathang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="makhachhang" Type="int" />
+    <Property Name="nguoinhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="sdtnguoinhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="diachinguoinhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="emailnguoinhan" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hangsanxuat">
+    <Key>
+      <PropertyRef Name="mahangsanxuat" />
+    </Key>
+    <Property Name="mahangsanxuat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenhangsanxuat" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="nguoidung1">
+    <Key>
+      <PropertyRef Name="taikhoan" />
+    </Key>
+    <Property Name="taikhoan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="matkhau" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="thongtinkhachhang">
+    <Key>
+      <PropertyRef Name="makhachhang" />
+    </Key>
+    <Property Name="makhachhang" Type="int" Nullable="false" />
+    <Property Name="tenkhachhang" Type="nvarchar" MaxLength="50" />
+    <Property Name="sdt" Type="nvarchar" MaxLength="50" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="thongtinmathang">
+    <Key>
+      <PropertyRef Name="mamathang" />
+    </Key>
+    <Property Name="mamathang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenmathang" Type="nvarchar" MaxLength="50" />
+    <Property Name="manhinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="hedieuhanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="chip" Type="nvarchar" MaxLength="50" />
+    <Property Name="camera" Type="nvarchar" MaxLength="50" />
+    <Property Name="pin" Type="nvarchar" MaxLength="50" />
+    <Property Name="anh" Type="nvarchar" MaxLength="200" />
+    <Property Name="RAM" Type="nvarchar" MaxLength="50" />
+    <Property Name="bonhotrong" Type="nvarchar" MaxLength="50" />
+    <Property Name="cnmanhinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="namramat" Type="int" />
+    <Property Name="gia" Type="int" />
+    <Property Name="mahangsanxuat" Type="int" />
+    <Property Name="tinhtrang" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tintuc">
+    <Key>
+      <PropertyRef Name="matin" />
+    </Key>
+    <Property Name="matin" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tieude" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="anhtin" Type="nvarchar" MaxLength="100" />
+    <Property Name="noidung" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <Association Name="FK_ctdondathang_thongtinmathang">
+    <End Role="thongtinmathang" Type="Self.thongtinmathang" Multiplicity="1" />
+    <End Role="ctdondathang" Type="Self.ctdondathang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="thongtinmathang">
+        <PropertyRef Name="mamathang" />
+      </Principal>
+      <Dependent Role="ctdondathang">
+        <PropertyRef Name="IDsp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dondathang_thongtinkhachhang">
+    <End Role="thongtinkhachhang" Type="Self.thongtinkhachhang" Multiplicity="0..1" />
+    <End Role="dondathang" Type="Self.dondathang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="thongtinkhachhang">
+        <PropertyRef Name="makhachhang" />
+      </Principal>
+      <Dependent Role="dondathang">
+        <PropertyRef Name="makhachhang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_thongtinmathang_hangsanxuat">
+    <End Role="hangsanxuat" Type="Self.hangsanxuat" Multiplicity="0..1" />
+    <End Role="thongtinmathang" Type="Self.thongtinmathang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hangsanxuat">
+        <PropertyRef Name="mahangsanxuat" />
+      </Principal>
+      <Dependent Role="thongtinmathang">
+        <PropertyRef Name="mahangsanxuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bc_webModelStoreContainer">
+    <EntitySet Name="ctdondathang" EntityType="Self.ctdondathang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dondathang" EntityType="Self.dondathang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hangsanxuat" EntityType="Self.hangsanxuat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nguoidung1" EntityType="Self.nguoidung1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="thongtinkhachhang" EntityType="Self.thongtinkhachhang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="thongtinmathang" EntityType="Self.thongtinmathang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tintuc" EntityType="Self.tintuc" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ctdondathang_thongtinmathang" Association="Self.FK_ctdondathang_thongtinmathang">
+      <End Role="thongtinmathang" EntitySet="thongtinmathang" />
+      <End Role="ctdondathang" EntitySet="ctdondathang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dondathang_thongtinkhachhang" Association="Self.FK_dondathang_thongtinkhachhang">
+      <End Role="thongtinkhachhang" EntitySet="thongtinkhachhang" />
+      <End Role="dondathang" EntitySet="dondathang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_thongtinmathang_hangsanxuat" Association="Self.FK_thongtinmathang_hangsanxuat">
+      <End Role="hangsanxuat" EntitySet="hangsanxuat" />
+      <End Role="thongtinmathang" EntitySet="thongtinmathang" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

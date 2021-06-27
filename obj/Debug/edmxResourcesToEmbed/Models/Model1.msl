@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bc_webModelStoreContainer" CdmEntityContainer="bc_webEntities">
+    <EntitySetMapping Name="ctdondathangs">
+      <EntityTypeMapping TypeName="bc_webModel.ctdondathang">
+        <MappingFragment StoreEntitySet="ctdondathang">
+          <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+          <ScalarProperty Name="gia" ColumnName="gia" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="IDsp" ColumnName="IDsp" />
+          <ScalarProperty Name="IDdonhang" ColumnName="IDdonhang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dondathangs">
+      <EntityTypeMapping TypeName="bc_webModel.dondathang">
+        <MappingFragment StoreEntitySet="dondathang">
+          <ScalarProperty Name="emailnguoinhan" ColumnName="emailnguoinhan" />
+          <ScalarProperty Name="diachinguoinhan" ColumnName="diachinguoinhan" />
+          <ScalarProperty Name="sdtnguoinhan" ColumnName="sdtnguoinhan" />
+          <ScalarProperty Name="nguoinhan" ColumnName="nguoinhan" />
+          <ScalarProperty Name="makhachhang" ColumnName="makhachhang" />
+          <ScalarProperty Name="madondathang" ColumnName="madondathang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hangsanxuats">
+      <EntityTypeMapping TypeName="bc_webModel.hangsanxuat">
+        <MappingFragment StoreEntitySet="hangsanxuat">
+          <ScalarProperty Name="tenhangsanxuat" ColumnName="tenhangsanxuat" />
+          <ScalarProperty Name="mahangsanxuat" ColumnName="mahangsanxuat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nguoidung1">
+      <EntityTypeMapping TypeName="bc_webModel.nguoidung1">
+        <MappingFragment StoreEntitySet="nguoidung1">
+          <ScalarProperty Name="matkhau" ColumnName="matkhau" />
+          <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="thongtinkhachhangs">
+      <EntityTypeMapping TypeName="bc_webModel.thongtinkhachhang">
+        <MappingFragment StoreEntitySet="thongtinkhachhang">
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="tenkhachhang" ColumnName="tenkhachhang" />
+          <ScalarProperty Name="makhachhang" ColumnName="makhachhang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="thongtinmathangs">
+      <EntityTypeMapping TypeName="bc_webModel.thongtinmathang">
+        <MappingFragment StoreEntitySet="thongtinmathang">
+          <ScalarProperty Name="tinhtrang" ColumnName="tinhtrang" />
+          <ScalarProperty Name="mahangsanxuat" ColumnName="mahangsanxuat" />
+          <ScalarProperty Name="gia" ColumnName="gia" />
+          <ScalarProperty Name="namramat" ColumnName="namramat" />
+          <ScalarProperty Name="cnmanhinh" ColumnName="cnmanhinh" />
+          <ScalarProperty Name="bonhotrong" ColumnName="bonhotrong" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="anh" ColumnName="anh" />
+          <ScalarProperty Name="pin" ColumnName="pin" />
+          <ScalarProperty Name="camera" ColumnName="camera" />
+          <ScalarProperty Name="chip" ColumnName="chip" />
+          <ScalarProperty Name="hedieuhanh" ColumnName="hedieuhanh" />
+          <ScalarProperty Name="manhinh" ColumnName="manhinh" />
+          <ScalarProperty Name="tenmathang" ColumnName="tenmathang" />
+          <ScalarProperty Name="mamathang" ColumnName="mamathang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tintucs">
+      <EntityTypeMapping TypeName="bc_webModel.tintuc">
+        <MappingFragment StoreEntitySet="tintuc">
+          <ScalarProperty Name="noidung" ColumnName="noidung" />
+          <ScalarProperty Name="anhtin" ColumnName="anhtin" />
+          <ScalarProperty Name="tieude" ColumnName="tieude" />
+          <ScalarProperty Name="matin" ColumnName="matin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

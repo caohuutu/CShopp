@@ -1,0 +1,197 @@
+﻿@model List<btap.foldermoi.CartItem>
+@{
+    ViewBag.Title = "đơn đặt hàng";
+    Layout = "~/Views/Shared/_layoutgiohang.cshtml";
+}
+<link rel="stylesheet" href="~/Assets/admin/css/form-dat-hang.css"/>
+<body>
+    <script src="~/Assets/admin/js/controller/giohang.js"></script>
+    <div class="grid wide">
+        <h2 style="margin-left:30px; margin-top:20px;">Đơn đặt hàng</h2>
+
+        @if (Model.Count > 0)
+        {
+            <table>
+                <tr>
+
+
+                    <th>Tên mặt hàng</th>
+
+                    <th style="width:190px;">Ảnh sản phẩm</th>
+
+                    <th>Số lượng</th>
+
+                    <th>Đơn giá</th>
+
+                    <th>Thành tiền</th>
+
+
+                </tr>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+
+                        <td>@item.ttsanpham.tenmathang</td>
+                        <td><img src="~/image/@item.ttsanpham.anh" style="width:130px; height:160px" /></td>
+                        <td class="so_luong">@item.Soluong</td>
+                        <td>@item.ttsanpham.gia.GetValueOrDefault(0).ToString("N0")đ</td>
+                        <td>@((item.ttsanpham.gia.GetValueOrDefault(0) * item.Soluong).ToString("N0"))đ</td>
+                    </tr>
+
+                }
+
+            </table>
+
+        }
+        else
+        {
+
+        }
+        <p class="total" style="color: var(--main-color ); font-size: 1.4rem; font-weight:500">Tổng tiền: @(Model.Sum(x=>x.Soluong * x.ttsanpham.gia).GetValueOrDefault(0).ToString("N0"))đ</p>
+        <div style="width: 100%">
+            <div class="wrap">
+                @using (Html.BeginForm("hddathang", "GioHang", FormMethod.Post))
+                {
+                    <div class="conten-order">
+                        <p class="txt">Mã khách hàng</p>
+                        <i class="fas fa-user-friends"></i>
+                        <input name="makhachhang" class="form-control" id="mkh" readonly />
+                        <p class="txt">Người nhận</p>
+                        <i class="fas fa-user-lock"></i>
+                        <input name="nguoinhan" class="form-control" id="name" />
+                        <p class="txt">Số điện thoại</p>
+                        <i class="fas fa-phone"></i>
+                        <input name="sdtnguoinhan" class="form-control" id="sdt" />
+                        <p class="txt">Địa chỉ</p>
+                        <i class="fas fa-home"></i>
+                        <input name="diachinguoinhan" class="form-control" id="addr" />
+                        <p class="txt">Email</p>
+                        <i class="fas fa-envelope"></i>
+                        <input name="emailnguoinhan" class="form-control" id="email-nn" />
+                    </div>
+                    <button onclick="dathang()" id="btnxoaall" class="btn" type="submit" style="background-color: var(--main-color); color: #fff; padding: 10px;">Đặt hàng</button>
+                }
+
+            </div>
+        </div>
+      
+    </div>
+    
+    <style>
+        body {
+            font-size: 14px
+        }
+
+        table, th, td {
+            border: 1px solid #9f9494;
+        }
+
+        th {
+            width: 170px;
+            text-align: center;
+            font-weight: 300;
+            font-size: 14px;
+            padding: 5px 0px;
+        }
+
+        table, td {
+            text-align: center;
+            font-weight: 300;
+        }
+
+        table {
+            border-collapse: collapse;
+            font-weight: 700;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+            table img {
+                padding: 15px 5px;
+                object-fit: cover;
+            }
+
+       /* input[type=text] {
+            margin-left: 160px;
+        }*/
+
+        span {
+            font-weight: bold;
+            color: #fc3030;
+        }
+
+        button {
+            padding: 5px 5px;
+            background-color: navajowhite;
+            border: 1px solid #9f9494;
+            color: black;
+            border-radius: 5px;
+            margin-left: 70px;
+        }
+
+        .total {
+            margin-left: 890px
+        }
+        .wrap {
+            width: 400px;
+            height: auto;
+            border: 1px solid #DDD;
+            margin-top: 30px;
+            text-align: center;
+            margin: 30px auto;
+        }
+}
+    </style>
+    @*</table>*@
+    
+                @*<div class="form-group">
+                <label>Mã khách hàng:</label>
+                <input name="makhachhang" class="form-control" id="mkh" readonly />
+                <p style="color:red" id="makh"></p>
+            </div>
+            <div class="form-group">
+                <label>Người nhận:</label>
+                <input name="nguoinhan" class="form-control" id="name" />
+                <p style="color:red" id="nguoinhan"></p>
+            </div>
+            <div class="form-group">
+                <label>Điện thoại:</label>
+                <input name="sdtnguoinhan" class="form-control" id="sdt" />
+                <p style="color:red" id="dt"></p>
+            </div>
+            <div class="form-group">
+                <label>Địa chỉ:</label>
+                <input name="diachinguoinhan" class="form-control" id="addr" />
+                <p style="color:red" id="dchi"></p>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input name="emailnguoinhan" class="form-control" id="email-nn" />
+                <p style="color:red" id="e-mail"></p>
+            </div>*@
+                
+            
+    <script>
+        $(function () {
+            var inputVal = $('#mkh').val(Math.floor(Math.random() * 2000));
+        });
+
+        $('.wrap').submit(function () {
+            var mkh = $('#mkh').val();
+            var name = $('#name').val();
+            var sdt = $('#sdt').val();
+            var addr = $('#adde').val();
+            var email = $('#email-nn').val();
+            if (mkh == "" || name == "" || sdt == "" || addr == "" || email == "") {
+                alert("vui lòng điền đầy đủ thông tin!");
+            }
+            else {
+                alert("đặt hàng thành công!");
+            }
+        })
+
+    </script>
+</body>
+

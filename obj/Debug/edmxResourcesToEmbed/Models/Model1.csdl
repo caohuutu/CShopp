@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bc_webModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="bc_webEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ctdondathangs" EntityType="bc_webModel.ctdondathang" />
+    <EntitySet Name="dondathangs" EntityType="bc_webModel.dondathang" />
+    <EntitySet Name="hangsanxuats" EntityType="bc_webModel.hangsanxuat" />
+    <EntitySet Name="nguoidung1" EntityType="bc_webModel.nguoidung1" />
+    <EntitySet Name="thongtinkhachhangs" EntityType="bc_webModel.thongtinkhachhang" />
+    <EntitySet Name="thongtinmathangs" EntityType="bc_webModel.thongtinmathang" />
+    <EntitySet Name="tintucs" EntityType="bc_webModel.tintuc" />
+    <AssociationSet Name="FK_ctdondathang_thongtinmathang" Association="bc_webModel.FK_ctdondathang_thongtinmathang">
+      <End Role="thongtinmathang" EntitySet="thongtinmathangs" />
+      <End Role="ctdondathang" EntitySet="ctdondathangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dondathang_thongtinkhachhang" Association="bc_webModel.FK_dondathang_thongtinkhachhang">
+      <End Role="thongtinkhachhang" EntitySet="thongtinkhachhangs" />
+      <End Role="dondathang" EntitySet="dondathangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_thongtinmathang_hangsanxuat" Association="bc_webModel.FK_thongtinmathang_hangsanxuat">
+      <End Role="hangsanxuat" EntitySet="hangsanxuats" />
+      <End Role="thongtinmathang" EntitySet="thongtinmathangs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ctdondathang">
+    <Key>
+      <PropertyRef Name="IDdonhang" />
+    </Key>
+    <Property Name="IDdonhang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDsp" Type="Int32" Nullable="false" />
+    <Property Name="soluong" Type="Int32" />
+    <Property Name="gia" Type="Int32" />
+    <Property Name="tongtien" Type="Int32" />
+    <NavigationProperty Name="thongtinmathang" Relationship="bc_webModel.FK_ctdondathang_thongtinmathang" FromRole="ctdondathang" ToRole="thongtinmathang" />
+  </EntityType>
+  <EntityType Name="dondathang">
+    <Key>
+      <PropertyRef Name="madondathang" />
+    </Key>
+    <Property Name="madondathang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="makhachhang" Type="Int32" />
+    <Property Name="nguoinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sdtnguoinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachinguoinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="emailnguoinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="thongtinkhachhang" Relationship="bc_webModel.FK_dondathang_thongtinkhachhang" FromRole="dondathang" ToRole="thongtinkhachhang" />
+  </EntityType>
+  <EntityType Name="hangsanxuat">
+    <Key>
+      <PropertyRef Name="mahangsanxuat" />
+    </Key>
+    <Property Name="mahangsanxuat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenhangsanxuat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="thongtinmathangs" Relationship="bc_webModel.FK_thongtinmathang_hangsanxuat" FromRole="hangsanxuat" ToRole="thongtinmathang" />
+  </EntityType>
+  <EntityType Name="nguoidung1">
+    <Key>
+      <PropertyRef Name="taikhoan" />
+    </Key>
+    <Property Name="taikhoan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="thongtinkhachhang">
+    <Key>
+      <PropertyRef Name="makhachhang" />
+    </Key>
+    <Property Name="makhachhang" Type="Int32" Nullable="false" />
+    <Property Name="tenkhachhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="dondathangs" Relationship="bc_webModel.FK_dondathang_thongtinkhachhang" FromRole="thongtinkhachhang" ToRole="dondathang" />
+  </EntityType>
+  <EntityType Name="thongtinmathang">
+    <Key>
+      <PropertyRef Name="mamathang" />
+    </Key>
+    <Property Name="mamathang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenmathang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="manhinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hedieuhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="chip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="camera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="anh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bonhotrong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cnmanhinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="namramat" Type="Int32" />
+    <Property Name="gia" Type="Int32" />
+    <Property Name="mahangsanxuat" Type="Int32" />
+    <Property Name="tinhtrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ctdondathangs" Relationship="bc_webModel.FK_ctdondathang_thongtinmathang" FromRole="thongtinmathang" ToRole="ctdondathang" />
+    <NavigationProperty Name="hangsanxuat" Relationship="bc_webModel.FK_thongtinmathang_hangsanxuat" FromRole="thongtinmathang" ToRole="hangsanxuat" />
+  </EntityType>
+  <EntityType Name="tintuc">
+    <Key>
+      <PropertyRef Name="matin" />
+    </Key>
+    <Property Name="matin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tieude" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="anhtin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="noidung" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_ctdondathang_thongtinmathang">
+    <End Type="bc_webModel.thongtinmathang" Role="thongtinmathang" Multiplicity="1" />
+    <End Type="bc_webModel.ctdondathang" Role="ctdondathang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="thongtinmathang">
+        <PropertyRef Name="mamathang" />
+      </Principal>
+      <Dependent Role="ctdondathang">
+        <PropertyRef Name="IDsp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dondathang_thongtinkhachhang">
+    <End Type="bc_webModel.thongtinkhachhang" Role="thongtinkhachhang" Multiplicity="0..1" />
+    <End Type="bc_webModel.dondathang" Role="dondathang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="thongtinkhachhang">
+        <PropertyRef Name="makhachhang" />
+      </Principal>
+      <Dependent Role="dondathang">
+        <PropertyRef Name="makhachhang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_thongtinmathang_hangsanxuat">
+    <End Type="bc_webModel.hangsanxuat" Role="hangsanxuat" Multiplicity="0..1" />
+    <End Type="bc_webModel.thongtinmathang" Role="thongtinmathang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hangsanxuat">
+        <PropertyRef Name="mahangsanxuat" />
+      </Principal>
+      <Dependent Role="thongtinmathang">
+        <PropertyRef Name="mahangsanxuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

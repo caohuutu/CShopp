@@ -1,0 +1,142 @@
+﻿@model btap.Models.thongtinmathang
+
+@{
+    ViewBag.Title = "Chitietsp";
+    Layout = "~/Views/Shared/_Layoutchitiet.cshtml";
+}
+
+
+<div class="content">
+    <div class="grid wide">
+        <div class="breadcrumb">
+            <div class="row">
+                <div class="col l-12">
+                    <ul class="breadcrumb__list">
+                        <li class="breadcrumb__item">
+                            <span><i class="fas fa-home"></i></span>
+                            <a href="~/Home/Index" class="breadcrumb__link">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <span><i class="fas fa-angle-right"></i></span>
+                            <a href="" class="breadcrumb__link">Sản phẩm</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <span><i class="fas fa-angle-right"></i></span>
+                            <a class="breadcrumb__link">@Html.DisplayFor(model => model.tenmathang)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="product-detail">
+            <div class="row">
+                <div class="col l-12 m-12 c-12">
+                    <div class="product-detail__name">
+                        <h3>@Html.DisplayFor(model => model.tenmathang)</h3>
+                    </div>
+
+                </div>
+                <div class="col l-5 m-6 c-12">
+                    <div class="product-detail__img-block">
+                        <div class="product-detail__large-img">
+                            <img src="~/image/@Model.anh" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="product-detail__price">
+                        <div class="product-detail__price-sale">
+                            <span>@(Model.gia.HasValue? Model.gia.Value.ToString("N0") : "")đ</span>
+                        </div>
+                        @*<div class="product-detail__price-real">
+                                Giá thị trường: <span>24,000,000đ</span>
+                            </div>*@
+                        <div class="product-detail__status">
+                            Tình trạng: <span>@Html.DisplayFor(model => model.tinhtrang)</span>
+                        </div>
+                        <form action="">
+                            <div class="product-detail__form">
+                                @*<div class="product-detail__quantity">
+                                        <button class="btn-minus" type="button">–</button>
+                                        <input type="text" maxlength="2" class="input-quantity" id="qty" name="quantity" size="4" value="1">
+                                        <button class="btn-plus" type="button">+</button>
+                                    </div>*@
+                                <div class="product-detail__buy">
+                                   
+                                        <button type="submit" @*data-role="addtocart"*@ class="product-detail__buy-btn" id="s1">
+                                            <span>
+                                                <a style="text-decoration: none; color: #fff" href="/them?mamathang=@Html.DisplayFor(model => model.mamathang)&soluong=1"><i class="fa fa-cart-arrow-down padding-right-10"></i> Thêm vào giỏ </a>
+                                            </span>
+                                        </button>
+                                  
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="product-detail__promotion">
+                        <div class="product-detail__promotion-info">
+                            <span>Ưu đãi khi mua sản phẩm:</span>
+                            <ul class="product-detail__promotion-list">
+                                <li class="product-detail__promotion-item">Giảm giá 20% sạc dự phòng khi mua sản phẩm này</li>
+                                <li class="product-detail__promotion-item">Miễn phí dán cường lực</li>
+                                <li class="product-detail__promotion-item">Tặng 1 ốp lưng thời trang</li>
+                                <li class="product-detail__promotion-item">Bảo hành miễn phí và đổi trả trong 1 tháng khi gặp sự cố</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-3 m-12 c-12">
+                    <div class="product-detail__infomation">
+                        <div class="product-detail__infomation-title">
+                            <span>Thông số kỹ thuật</span>
+                        </div>
+                        <div class="product-detail__infomation-content">
+                            <ul class="product-detail__infomation-list">
+                                <li class="product-detail__infomation-item">
+                                    <label>Công nghệ màn hình :</label>
+                                    <span>@Html.DisplayFor(model => model.cnmanhinh)</span>
+                                </li>
+                                <li class="product-detail__infomation-item">
+                                    <label>Màn hình :</label>
+                                    <span>@Html.DisplayFor(model => model.tenmathang)</span>
+                                </li>
+                                <li class="product-detail__infomation-item">
+                                    <label>Hệ điều hành :</label>
+                                    <span>@Html.DisplayFor(model => model.hedieuhanh)</span>
+                                </li>
+                                <li class="product-detail__infomation-item">
+                                    <label>Chip :</label>
+                                    <span>@Html.DisplayFor(model => model.chip)</span>
+                                </li>
+                                <li class="product-detail__infomation-item">
+                                    <label>Camera :</label>
+                                    <span>@Html.DisplayFor(model => model.camera)</span>
+                                </li>
+                                <li class="product-detail__infomation-item">
+                                    <label>Pin :</label>
+                                    <span>@Html.DisplayFor(model => model.pin)</span>
+                                </li>
+                                <li class="product-detail__infomation-item">
+                                    <label>RAM :</label>
+                                    <span>@Html.DisplayFor(model => model.RAM)</span>
+                                </li>
+                                <li class="product-detail__infomation-item">
+                                    <label>ROM :</label>
+                                    <span>@Html.DisplayFor(model => model.bonhotrong)</span>
+                                </li>
+                                <li class="product-detail__infomation-item">
+                                    <label>Năm ra mắt :</label>
+                                    <span>@Html.DisplayFor(model => model.namramat)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

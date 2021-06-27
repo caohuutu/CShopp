@@ -1,0 +1,57 @@
+﻿@model IEnumerable<btap.Models.thongtinmathang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Assets/admin/js/controller/giohang.js"></script>
+<div class="content">
+    <div class="grid wide">
+        <div class="content__top">
+            <div class="content__slider">
+                <div class="content__slider-img">
+                    <img src="https://cdn.tgdd.vn/2020/10/banner/iphone-12-800-300-800x300-3.png" alt="">
+                </div>
+                <div class="content__slider-title">
+                    <ul class="content__slider-list">
+                        <li class="content__slider-item content__slider-item--active"><a style="text-decoration:none" href="~/Home/Chitietsp/1">Độc quyền Iphone 12 Pro Max giảm 1 triệu</a></li>
+                        <li class="content__slider-item"><a style="text-decoration:none" href="~/Home/Chitietsp/7">Samsung Galaxy Ultra giảm mạnh</a></li>
+                        <li class="content__slider-item"><a style="text-decoration:none" href="~/Home/Chitietsp/3">Iphone 6s giảm đến 3 triệu</a></li>
+                        <li class="content__slider-item"><a style="text-decoration:none" href="~/Home/Chitietsp/11">Oppo Reno 3 Pro giá chỉ 5,500,000đ</a></li>
+                        <li class="content__slider-item"><a style="text-decoration:none" href="~/Home/Chitietsp/4">Xiaomi mi10T Pro chỉ còn 10,000,000đ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content__main">
+            <div class="content__main-head">
+                <div class="content__main-title">Samsung</div>
+
+            </div>
+            <div class="content__main-product">
+                <ul class="content__main-product-list">
+                    @foreach (var item in Model.Where(x => x.hangsanxuat.tenhangsanxuat.Contains("Samsung")))
+                    {
+                        <li class="content__main-product-item">
+                            <div class="product">
+                                <a href="~/Home/Chitietsp/@item.mamathang" class="product__link"></a>
+                                <div class="product__img">
+                                    <img src="~/image/@item.anh" />
+                                </div>
+                                <p class="product__name">@item.tenmathang</p>
+                                <div class="product__price">
+                                    <strong class="product__price-sale">Giá: @item.gia.GetValueOrDefault(0).ToString("N0")đ</strong>
+
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ql_ban_hangModelStoreContainer" CdmEntityContainer="ql_ban_hangEntities">
+    <EntitySetMapping Name="cthoadonbans">
+      <EntityTypeMapping TypeName="ql_ban_hangModel.cthoadonban">
+        <MappingFragment StoreEntitySet="cthoadonban">
+          <ScalarProperty Name="mahoadonban" ColumnName="mahoadonban" />
+          <ScalarProperty Name="mamathang" ColumnName="mamathang" />
+          <ScalarProperty Name="soluongban" ColumnName="soluongban" />
+          <ScalarProperty Name="giaban" ColumnName="giaban" />
+          <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cthoadonnhaps">
+      <EntityTypeMapping TypeName="ql_ban_hangModel.cthoadonnhap">
+        <MappingFragment StoreEntitySet="cthoadonnhap">
+          <ScalarProperty Name="mahoadonnhap" ColumnName="mahoadonnhap" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="gianhap" ColumnName="gianhap" />
+          <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hoadonbans">
+      <EntityTypeMapping TypeName="ql_ban_hangModel.hoadonban">
+        <MappingFragment StoreEntitySet="hoadonban">
+          <ScalarProperty Name="mahoadonban" ColumnName="mahoadonban" />
+          <ScalarProperty Name="manhanvien" ColumnName="manhanvien" />
+          <ScalarProperty Name="ngayban" ColumnName="ngayban" />
+          <ScalarProperty Name="makhachhang" ColumnName="makhachhang" />
+          <ScalarProperty Name="thanhtien" ColumnName="thanhtien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hoadonnhaps">
+      <EntityTypeMapping TypeName="ql_ban_hangModel.hoadonnhap">
+        <MappingFragment StoreEntitySet="hoadonnhap">
+          <ScalarProperty Name="mahoadonnhap" ColumnName="mahoadonnhap" />
+          <ScalarProperty Name="ngaynhap" ColumnName="ngaynhap" />
+          <ScalarProperty Name="manhanvien" ColumnName="manhanvien" />
+          <ScalarProperty Name="nhacc" ColumnName="nhacc" />
+          <ScalarProperty Name="thanhtien" ColumnName="thanhtien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="thongtinkhachhangs">
+      <EntityTypeMapping TypeName="ql_ban_hangModel.thongtinkhachhang">
+        <MappingFragment StoreEntitySet="thongtinkhachhang">
+          <ScalarProperty Name="makhachhang" ColumnName="makhachhang" />
+          <ScalarProperty Name="tenkhachhang" ColumnName="tenkhachhang" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="thongtinmathangs">
+      <EntityTypeMapping TypeName="ql_ban_hangModel.thongtinmathang">
+        <MappingFragment StoreEntitySet="thongtinmathang">
+          <ScalarProperty Name="mamathang" ColumnName="mamathang" />
+          <ScalarProperty Name="tenmathang" ColumnName="tenmathang" />
+          <ScalarProperty Name="soluongton" ColumnName="soluongton" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="thongtinnhanviens">
+      <EntityTypeMapping TypeName="ql_ban_hangModel.thongtinnhanvien">
+        <MappingFragment StoreEntitySet="thongtinnhanvien">
+          <ScalarProperty Name="manhanvien" ColumnName="manhanvien" />
+          <ScalarProperty Name="tennhanvien" ColumnName="tennhanvien" />
+          <ScalarProperty Name="quequan" ColumnName="quequan" />
+          <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+          <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

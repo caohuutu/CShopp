@@ -1,0 +1,58 @@
+﻿@model btap.Models.thongtinkhachhang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/layout_admin.cshtml";
+}
+
+<h3>Bạn có muốn xóa thông tin khách hàng ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="margin-left:20px">
+        <dt>
+            Mã khách hàng:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.makhachhang)
+        </dd>
+        <dt>
+            Tên khách hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenkhachhang)
+        </dd>
+
+        <dt>
+            Số điện thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdt)
+        </dd>
+
+        <dt>
+            Địa chỉ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+    </dl>
+    <style>
+        dd {
+            margin-left: 130px;
+            margin-top: -23px;
+        }
+    </style>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại danh sách", "Index")
+        </div>
+    }
+</div>

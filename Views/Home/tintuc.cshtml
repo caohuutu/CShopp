@@ -1,0 +1,53 @@
+﻿@model IEnumerable<btap.Models.tintuc>
+@{
+    ViewBag.Title = "tintuc";
+    Layout = "~/Views/Shared/_layoutgiohang.cshtml";
+}
+<link rel="stylesheet" href="~/Assets/admin/css/tintuc.css"/>
+
+<div class="content">
+    <div class="grid wide">
+        <div class="breadcrumb">
+            <div class="row">
+                <div class="col l-12">
+                    <ul class="breadcrumb__list">
+                        <li class="breadcrumb__item">
+                            <span><i class="fas fa-home"></i></span>
+                            <a href="~/Home/Index" class="breadcrumb__link">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <span><i class="fas fa-angle-right"></i></span>
+                            <a class="breadcrumb__link">Tin tức</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="content-news">
+            <div class="row">
+                @foreach (var item in Model)
+                 {
+                    <div class="content-news-item col l-12 m-12 c-12">
+                        <a href="~/Home/Chitiettintuc/@item.matin" class="content-news-link"></a>
+                            <div class="content-news-img">
+
+                                <img src="~/image/@item.anhtin" />
+
+                            </div>
+                        
+                            <div class="content-news-main">
+                                <div class="content-news-title">
+                                    @item.tieude
+                                </div>
+                                <p class="content-news-detail" style="text-align: justify">
+                                    @item.noidung
+                                </p>
+                            </div>
+                        
+                    </div>
+                 }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,22 @@
+﻿@model List<btap.foldermoi.CartItem>
+@{
+    ViewBag.Title = "thanhcong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h3 style="font-weight:400; padding:20px 20px;">Đặt hàng thành công, chúng tôi sẽ gọi cho bạn sau 20-30 phút nữa</h3>*@@*<h3 style="font-weight:400; padding:20px 20px;">Đặt hàng thành công, chúng tôi sẽ gọi cho bạn sau 20-30 phút nữa</h3>*@
+
+<script>
+    function dathang() {
+        /*var makh = document.getElementById('mkh').value;*/
+        var name = document.getElementById('name').value;
+        var sdt = document.getElementById('sdt').value;
+        var diachi = document.getElementById('addr').value;
+        var email = document.getElementById('email-nn').value;
+        if (name == "" || sdt == "" || diachi == "" || email == "") {
+            alert("Chưa ghi ten");
+        } else {
+            alert("dat hang thanh cong!");
+        }
+    }
+</script>

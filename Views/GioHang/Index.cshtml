@@ -1,0 +1,171 @@
+﻿@model List<btap.foldermoi.CartItem>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_layoutgiohang.cshtml";
+}
+<script src="~/Assets/admin/js/controller/giohang.js"></script>
+
+<body>
+    <div class="grid wide">
+        <h2 style="margin-left:30px; margin-top:20px; color: black">Giỏ hàng cá nhân</h2>
+        @if (Model.Count > 0)
+        {
+            <table>
+                <tr>
+                    <th>Tên mặt hàng</th>
+
+                    <th style="width:190px;">Ảnh sản phẩm</th>
+
+                    <th>Số lượng</th>
+
+                    <th>Đơn giá</th>
+
+                    <th>Thành tiền</th>
+
+
+                    @*<th>Xóa</th>*@
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.ttsanpham.tenmathang</td>
+                        <td><img src="~/image/@item.ttsanpham.anh" style="width:130px; height:160px" /></td>
+                        <td class="so_luong"><input type="text" class="txtsoluong" data-id="@item.ttsanpham.mamathang" value="@item.Soluong" /></td>
+                        <td>@item.ttsanpham.gia.GetValueOrDefault(0).ToString("N0")đ</td>
+                        <td>@((item.ttsanpham.gia.GetValueOrDefault(0) * item.Soluong).ToString("N0"))đ</td>
+                        @*<td><i onclick="Delete()" id="btnxoa" data-id="@item.ttsanpham.mamathang" style="color:black;cursor:pointer" class="far fa-trash-alt"></i></td>*@
+                        <td><a href="" onclick="Delete(@item.ttsanpham.mamathang)" id="btnxoa" data-id="@item.ttsanpham.mamathang" style="padding:0 10px;text-decoration:none">Xóa</a></td>
+
+                    </tr>
+
+                }
+
+
+
+            </table>
+            <div class="btn-giohang">
+                @*<a href="~/Home/Index" class="btn-continue"><button style="cursor:pointer">Tiếp tục mua hàng</button></a>*@
+                <button class="btn-delete" onclick="DeleteAll()" @*id="btnxoaall"*@ style="cursor: pointer; background-color: var(--main-color); color: #fff; padding: 10px;">Xóa giỏ hàng</button>
+                <button id="btnUpdate" onclick="Update()" style="margin-left: 5px; cursor: pointer; background-color: var(--main-color); color: #fff; padding: 10px;">Cập nhật</button>
+                <a href="~/GioHang/hddathang"><button onclick="Thanhtoan()" id="btnthanhtoan" style="cursor: pointer; background-color: var(--main-color); color: #fff; padding: 10px;">Thanh toán</button></a>
+
+            </div>
+        }
+        else
+        {
+            <span style="margin-left:50px; font-size: 13px">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+    </div>
+   
+
+
+
+
+    <style>
+        table, th, td {
+            border: 1px solid #9f9494;
+            font-size: 14px
+        }
+
+        th {
+            width: 170px;
+            text-align: center;
+            font-weight: 400;
+            font-size: 14px;
+            padding: 5px 0px;
+        }
+
+        table, td {
+            text-align: center;
+            font-weight: 400;
+        }
+
+        table {
+            border-collapse: collapse;
+            font-weight: 400;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            /* position: relative*/
+        }
+
+            table img {
+                padding: 15px 5px;
+                object-fit: cover;
+            }
+
+        span {
+            font-weight: bold;
+            color: #fc3030;
+        }
+
+        button {
+            padding: 5px 5px;
+            background-color: navajowhite;
+            border: 1px solid #9f9494;
+            color: black;
+            border-radius: 5px;
+            margin-left: 70px;
+        }
+
+        input.txtsoluong {
+            width: 50px;
+            margin: 0;
+        }
+
+        .btn-delete {
+            margin-left: 5px;
+        }
+
+        #btnthanhtoan {
+            margin-left: 5px
+        }
+
+        .btn-giohang {
+            margin-left: 135px;
+            font-size: 13px
+        }
+
+        .txtsoluong {
+            border: 1px solid #808080;
+            text-align: center;
+            border-radius: 3px
+        }
+    </style>
+
+
+
+
+    @*<input style="cursor:pointer" onclick="DeleteAll()" type="button" id="btnxoaall" value="Xóa" />*@
+
+
+    <script>
+        function Update() {
+            var listSp = $('.txtsoluong');
+            var cartList = [];
+            $.each(listSp, function (i, item) {
+                cartList.push({
+                    Soluong: $(item).val(),
+                    ttsanpham: {
+                        mamathang: $(item).data('id')
+                    }
+                });
+            });
+            $.ajax({
+                url: '/GioHang/Update',
+                data: { cartModel: JSON.stringify(cartList) },
+                dataType: 'json',
+                type: 'POST',
+                success: function (res) {
+                    if (res.status == true) {
+                        console.log(res);
+                        window.location.href = "/GioHang";
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>

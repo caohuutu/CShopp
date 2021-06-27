@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "timkiemadm";
+    Layout = "~/Areas/Admin/Views/Shared/layout_admin.cshtml";
+}
+
+
+
+@model IEnumerable<btap.Models.thongtinmathang>
+
+
+<h2 style="margin-top:10px;margin-left:10px;margin-bottom:10px">Thông tin sản phẩm tìm kiếm</h2>
+
+
+<body>
+    @if (Model.Count() == 0)
+    {
+        <p>Không tìm thấy sản phẩm</p>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <div>
+                <hr />
+                <dl class="dl-horizontal" style="margin-left:70px;margin-top:10px;position:relative">
+
+                    <dt>
+                        Tên sản phẩm:
+                    </dt>
+                    <p class="txt-sp">@item.tenmathang</p>
+                    <dt>
+                        Màn hình:
+                    </dt>
+                    <p class="txt-sp">@item.manhinh</p>
+                    <dt>
+                        Hệ điều hành:
+                    </dt>
+                    <p class="txt-sp">@item.hedieuhanh</p>
+                    <dt>
+                        Chip:
+                    </dt>
+                    <p class="txt-sp">@item.chip</p>
+                    <dt>
+                        Camera:
+                    </dt>
+                    <p class="txt-sp">@item.camera</p>
+                    <dt>
+                        Pin:
+                    </dt>
+                    <p class="txt-sp">@item.pin</p>
+                    <dt>
+                        RAM:
+                    </dt>
+                    <p class="txt-sp">@item.RAM</p>
+                    <dt>
+                        Bộ nhớ trong:
+                    </dt>
+                    <p class="txt-sp">@item.bonhotrong</p>
+                    <dt>
+                        Công nghệ màn hình:
+                    </dt>
+                    <p class="txt-sp">@item.cnmanhinh</p>
+                    <dt>
+                        Năm ra mắt:
+                    </dt>
+                    <p class="txt-sp">@item.namramat</p>
+                    <dt>
+                        Giá:
+                    </dt>
+                    <p class="txt-sp">@(item.gia.GetValueOrDefault(0).ToString("N0"))đ</p>
+                    <div>
+                        <img src="~/image/@item.anh" style="width: 240px; height:260px;left: 440px;top:40px;position:absolute" />
+                    </div>
+                    
+                </dl>
+
+
+
+            </div>
+        }
+    }
+
+    <style>
+        .txt-sp {
+            margin-left: 165px;
+            margin-top: -17px;
+        }
+
+        dt {
+            margin-top: 13px;
+        }
+
+        input[type=button] {
+            background-color: navajowhite;
+            border: 1px solid;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+            input[type=button]:hover {
+                background-color: orange;
+            }
+    </style>
+</body>

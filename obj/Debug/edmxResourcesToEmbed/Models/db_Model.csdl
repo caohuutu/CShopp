@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ql_ban_hangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cthoadonban">
+    <Key>
+      <PropertyRef Name="mahoadonban" />
+      <PropertyRef Name="mamathang" />
+    </Key>
+    <Property Name="mahoadonban" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mamathang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soluongban" Type="Int32" />
+    <Property Name="giaban" Type="Int32" />
+    <Property Name="tongtien" Type="Int32" />
+    <NavigationProperty Name="hoadonban" Relationship="Self.FK_cthoadonban_hoadonban" FromRole="cthoadonban" ToRole="hoadonban" />
+    <NavigationProperty Name="thongtinmathang" Relationship="Self.FK_cthoadonban_thongtinmathang" FromRole="cthoadonban" ToRole="thongtinmathang" />
+  </EntityType>
+  <EntityType Name="cthoadonnhap">
+    <Key>
+      <PropertyRef Name="mahoadonnhap" />
+    </Key>
+    <Property Name="mahoadonnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soluong" Type="Int32" />
+    <Property Name="gianhap" Type="Int32" />
+    <Property Name="tongtien" Type="Int32" />
+    <NavigationProperty Name="hoadonnhap" Relationship="Self.FK_cthoadonnhap_hoadonnhap" FromRole="cthoadonnhap" ToRole="hoadonnhap" />
+  </EntityType>
+  <EntityType Name="hoadonban">
+    <Key>
+      <PropertyRef Name="mahoadonban" />
+    </Key>
+    <Property Name="mahoadonban" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="manhanvien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ngayban" Type="DateTime" Precision="0" />
+    <Property Name="makhachhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="thanhtien" Type="Int32" />
+    <NavigationProperty Name="cthoadonbans" Relationship="Self.FK_cthoadonban_hoadonban" FromRole="hoadonban" ToRole="cthoadonban" />
+    <NavigationProperty Name="thongtinkhachhang" Relationship="Self.FK_hoadonban_thongtinkhachhang" FromRole="hoadonban" ToRole="thongtinkhachhang" />
+    <NavigationProperty Name="thongtinnhanvien" Relationship="Self.FK_hoadonban_thongtinnhanvien" FromRole="hoadonban" ToRole="thongtinnhanvien" />
+  </EntityType>
+  <EntityType Name="hoadonnhap">
+    <Key>
+      <PropertyRef Name="mahoadonnhap" />
+    </Key>
+    <Property Name="mahoadonnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ngaynhap" Type="DateTime" Precision="0" />
+    <Property Name="manhanvien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nhacc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="thanhtien" Type="Int32" />
+    <NavigationProperty Name="cthoadonnhap" Relationship="Self.FK_cthoadonnhap_hoadonnhap" FromRole="hoadonnhap" ToRole="cthoadonnhap" />
+    <NavigationProperty Name="thongtinnhanvien" Relationship="Self.FK_hoadonnhap_thongtinnhanvien" FromRole="hoadonnhap" ToRole="thongtinnhanvien" />
+  </EntityType>
+  <EntityType Name="thongtinkhachhang">
+    <Key>
+      <PropertyRef Name="makhachhang" />
+    </Key>
+    <Property Name="makhachhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tenkhachhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="Int32" />
+    <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="hoadonbans" Relationship="Self.FK_hoadonban_thongtinkhachhang" FromRole="thongtinkhachhang" ToRole="hoadonban" />
+  </EntityType>
+  <EntityType Name="thongtinmathang">
+    <Key>
+      <PropertyRef Name="mamathang" />
+    </Key>
+    <Property Name="mamathang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tenmathang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="soluongton" Type="Int32" />
+    <NavigationProperty Name="cthoadonbans" Relationship="Self.FK_cthoadonban_thongtinmathang" FromRole="thongtinmathang" ToRole="cthoadonban" />
+  </EntityType>
+  <EntityType Name="thongtinnhanvien">
+    <Key>
+      <PropertyRef Name="manhanvien" />
+    </Key>
+    <Property Name="manhanvien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tennhanvien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="quequan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="Int32" />
+    <NavigationProperty Name="hoadonbans" Relationship="Self.FK_hoadonban_thongtinnhanvien" FromRole="thongtinnhanvien" ToRole="hoadonban" />
+    <NavigationProperty Name="hoadonnhaps" Relationship="Self.FK_hoadonnhap_thongtinnhanvien" FromRole="thongtinnhanvien" ToRole="hoadonnhap" />
+  </EntityType>
+  <Association Name="FK_cthoadonban_hoadonban">
+    <End Role="hoadonban" Type="Self.hoadonban" Multiplicity="1" />
+    <End Role="cthoadonban" Type="Self.cthoadonban" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hoadonban">
+        <PropertyRef Name="mahoadonban" />
+      </Principal>
+      <Dependent Role="cthoadonban">
+        <PropertyRef Name="mahoadonban" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cthoadonban_thongtinmathang">
+    <End Role="thongtinmathang" Type="Self.thongtinmathang" Multiplicity="1" />
+    <End Role="cthoadonban" Type="Self.cthoadonban" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="thongtinmathang">
+        <PropertyRef Name="mamathang" />
+      </Principal>
+      <Dependent Role="cthoadonban">
+        <PropertyRef Name="mamathang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cthoadonnhap_hoadonnhap">
+    <End Role="hoadonnhap" Type="Self.hoadonnhap" Multiplicity="1" />
+    <End Role="cthoadonnhap" Type="Self.cthoadonnhap" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="hoadonnhap">
+        <PropertyRef Name="mahoadonnhap" />
+      </Principal>
+      <Dependent Role="cthoadonnhap">
+        <PropertyRef Name="mahoadonnhap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hoadonban_thongtinkhachhang">
+    <End Role="thongtinkhachhang" Type="Self.thongtinkhachhang" Multiplicity="0..1" />
+    <End Role="hoadonban" Type="Self.hoadonban" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="thongtinkhachhang">
+        <PropertyRef Name="makhachhang" />
+      </Principal>
+      <Dependent Role="hoadonban">
+        <PropertyRef Name="makhachhang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hoadonban_thongtinnhanvien">
+    <End Role="thongtinnhanvien" Type="Self.thongtinnhanvien" Multiplicity="0..1" />
+    <End Role="hoadonban" Type="Self.hoadonban" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="thongtinnhanvien">
+        <PropertyRef Name="manhanvien" />
+      </Principal>
+      <Dependent Role="hoadonban">
+        <PropertyRef Name="manhanvien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hoadonnhap_thongtinnhanvien">
+    <End Role="thongtinnhanvien" Type="Self.thongtinnhanvien" Multiplicity="0..1" />
+    <End Role="hoadonnhap" Type="Self.hoadonnhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="thongtinnhanvien">
+        <PropertyRef Name="manhanvien" />
+      </Principal>
+      <Dependent Role="hoadonnhap">
+        <PropertyRef Name="manhanvien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ql_ban_hangEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cthoadonbans" EntityType="Self.cthoadonban" />
+    <EntitySet Name="cthoadonnhaps" EntityType="Self.cthoadonnhap" />
+    <EntitySet Name="hoadonbans" EntityType="Self.hoadonban" />
+    <EntitySet Name="hoadonnhaps" EntityType="Self.hoadonnhap" />
+    <EntitySet Name="thongtinkhachhangs" EntityType="Self.thongtinkhachhang" />
+    <EntitySet Name="thongtinmathangs" EntityType="Self.thongtinmathang" />
+    <EntitySet Name="thongtinnhanviens" EntityType="Self.thongtinnhanvien" />
+    <AssociationSet Name="FK_cthoadonban_hoadonban" Association="Self.FK_cthoadonban_hoadonban">
+      <End Role="hoadonban" EntitySet="hoadonbans" />
+      <End Role="cthoadonban" EntitySet="cthoadonbans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cthoadonban_thongtinmathang" Association="Self.FK_cthoadonban_thongtinmathang">
+      <End Role="thongtinmathang" EntitySet="thongtinmathangs" />
+      <End Role="cthoadonban" EntitySet="cthoadonbans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cthoadonnhap_hoadonnhap" Association="Self.FK_cthoadonnhap_hoadonnhap">
+      <End Role="hoadonnhap" EntitySet="hoadonnhaps" />
+      <End Role="cthoadonnhap" EntitySet="cthoadonnhaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hoadonban_thongtinkhachhang" Association="Self.FK_hoadonban_thongtinkhachhang">
+      <End Role="thongtinkhachhang" EntitySet="thongtinkhachhangs" />
+      <End Role="hoadonban" EntitySet="hoadonbans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hoadonban_thongtinnhanvien" Association="Self.FK_hoadonban_thongtinnhanvien">
+      <End Role="thongtinnhanvien" EntitySet="thongtinnhanviens" />
+      <End Role="hoadonban" EntitySet="hoadonbans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hoadonnhap_thongtinnhanvien" Association="Self.FK_hoadonnhap_thongtinnhanvien">
+      <End Role="thongtinnhanvien" EntitySet="thongtinnhanviens" />
+      <End Role="hoadonnhap" EntitySet="hoadonnhaps" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,47 @@
+﻿@model btap.Models.tintuc
+@{
+    ViewBag.Title = "Chitiettintuc";
+    Layout = "~/Views/Shared/_layoutgiohang.cshtml";
+}
+<link rel="stylesheet" href="~/Assets/admin/css/chi-tiet-tin-tuc.css" />
+
+    <div class="content">
+        <div class="grid wide">
+            <div class="breadcrumb">
+                <div class="row">
+                    <div class="col l-12 m-12 c-12">
+                        <ul class="breadcrumb__list">
+                            <li class="breadcrumb__item">
+                                <span><i class="fas fa-home"></i></span>
+                                <a href="~/Home/Index" class="breadcrumb__link">Trang chủ</a>
+                            </li>
+                            <li class="breadcrumb__item">
+                                <span><i class="fas fa-angle-right"></i></span>
+                                <a class="breadcrumb__link">Tin tức</a>
+                            </li>
+                            <li class="breadcrumb__item">
+                                <span><i class="fas fa-angle-right"></i></span>
+                                <a class="breadcrumb__link">@Html.DisplayFor(model => model.tieude)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content-news">
+                <div class="row">
+                    <div class="content-news-block col l-12 m-12 c-12">
+                        <h3 class="content-news-title">@Html.DisplayFor(model => model.tieude)</h3>
+                        <div class="content-news-img">
+                            <img src="~/image/@Model.anhtin" />
+                        </div>
+                        <p class="content-news-detail" style="text-align: justify">
+                            @Html.DisplayFor(model => model.noidung)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+

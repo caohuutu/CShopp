@@ -1,0 +1,56 @@
+﻿@model btap.Models.tintuc
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/layout_admin.cshtml";
+}
+
+<h3 style="margin-left:20px">Bạn có muốn xóa tin tức này không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tiêu đề:
+        </dt>
+
+        <dd class="ND">
+            @Html.DisplayFor(model => model.tieude)
+        </dd>
+
+        <dt>
+            Ảnh tin:
+        </dt>
+
+        <dd class="ND">
+            @Html.DisplayFor(model => model.anhtin)
+        </dd>
+
+        <dt>
+            Nội dung:
+        </dt>
+
+        <dd style="margin-left:20px">
+            @Html.DisplayFor(model => model.noidung)
+        </dd>
+
+    </dl>
+    <style>
+        dt {
+            margin-left: 20px
+        }
+
+        .ND {
+            margin-left: 90px;
+            margin-top: -25px;
+        }
+    </style>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại danh sách", "Index")
+        </div>
+    }
+</div>

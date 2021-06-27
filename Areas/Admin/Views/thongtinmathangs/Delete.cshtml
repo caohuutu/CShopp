@@ -1,0 +1,71 @@
+﻿@model btap.Models.thongtinmathang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/layout_admin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bạn có chắc chắn muốn xóa sản phẩm này không ?</h3>
+<div>
+    <h4>Thông tin mặt hàng</h4>
+    <hr />
+    <dl class="dl-horizontal" style="margin-left:40px;">
+        <dt>
+            Tên mặt hàng: @Html.DisplayFor(model => model.tenmathang)
+        </dt>
+
+        <dt>
+            Màn hình: @Html.DisplayFor(model => model.manhinh)
+        </dt>
+
+        <dt>
+            Hệ điều hành: @Html.DisplayFor(model => model.hedieuhanh)
+        </dt>
+
+        <dt>
+            Chip: @Html.DisplayFor(model => model.chip)
+        </dt>
+        <dt>
+            Camera: @Html.DisplayFor(model => model.camera)
+        </dt>
+        <dt>
+            Pin: @Html.DisplayFor(model => model.pin)
+        </dt>
+        <dt>
+            Ảnh: @Html.DisplayFor(model => model.anh)
+        </dt>
+        <dt>
+            RAM: @Html.DisplayFor(model => model.RAM)
+        </dt>
+        <dt>
+            Bộ nhớ trong: @Html.DisplayFor(model => model.bonhotrong)
+        </dt>
+        <dt>
+            Công nghệ màn hình: @Html.DisplayFor(model => model.cnmanhinh)
+        </dt>
+        <dt>
+            Năm ra mắt: @Html.DisplayFor(model => model.namramat)
+        </dt>
+        <dt>
+            Giá: @Html.DisplayFor(model => model.gia)đ
+        </dt>
+        <dt>
+            Mã hãng sản xuất: @Html.DisplayFor(model => model.mahangsanxuat)
+        </dt>
+        <dt>
+            Tình trạng: @Html.DisplayFor(model => model.tinhtrang)
+        </dt>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại danh sách", "Index")
+        </div>
+    }
+</div>

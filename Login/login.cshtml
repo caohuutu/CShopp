@@ -1,0 +1,172 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Admin/css/login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <title>Index</title>
+</head>
+<body>
+
+    <header>
+        <img class="logo" src="~/image/logonew.png" alt="">
+        <input type="text" autocomplete="off" placeholder="Nhập tên điện thoại, máy tính, phụ kiện,...cần tìm" required>
+        <div class="sch">
+            <a href="" onclick="timkiem()"><i class="fas fa-search"></i></a>
+        </div>
+        <div class="hd1">
+            <ul>
+                <li><i class="fas fa-file-alt" style="color: white;"></i><p class="p1">Tin tức</p></li>
+                <li><i class="fas fa-shopping-cart"></i><p class="p1">Giỏ hàng</p></li>
+                <li><i class="fas fa-user-lock"></i><p class="p2">Đăng nhập</p></li>
+                <li><i class="fas fa-user-plus"></i><p class="p2">Tạo tài khoản</p></li>
+            </ul>
+        </div>
+    </header>
+    <div class="down">
+        <ul class="menu">
+            <li class="menu_item">
+                <a href="">
+                    <h4 class="menu_item-title">
+                        <i class="fa fa-mobile-alt"></i><p>Điện thoại</p>
+                    </h4>
+                </a>
+                <ul class="menu_item-dropdown">
+                    <li>
+                        <a href="">Apple(iphone)</a>
+                    </li>
+                    <li>
+                        <a href="">Samsung</a>
+                    </li>
+                    <li>
+                        <a href="">OPPO</a>
+                    </li>
+                    <li>
+                        <a href="">Vsmart</a>
+                    </li>
+                    <li>
+                        <a href="">Xiaomi</a>
+                    </li>
+                    <li>
+                        <a href="">Realme</a>
+                    </li>
+                    <li>
+                        <a href="">Vivo</a>
+                    </li>
+                    <li>
+                        <a href="">Nokia</a>
+                    </li>
+                    <li>
+                        <a href="">Huawei</a>
+                    </li>
+                    <li>
+                        <a href="">Masstel</a>
+                    </li>
+                    <li>
+                        <a href="">Itel</a>
+                    </li>
+                    <li>
+                        <a href="">Energizer</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu_item">
+                <a href="">
+                    <h4 class="menu_item-title">
+                        <i class="fa fa-undo-alt"></i><p>Đổi trả</p>
+                    </h4>
+                </a>
+            </li>
+            <li class="menu_item">
+                <a href="">
+                    <h4 class="menu_item-title">
+                        <i class="fa fa-percentage"></i><p>Giảm giá</p>
+                    </h4>
+                </a>
+                <ul class="menu_item-dropdown">
+                    <li>
+                        <a href="">Thông tin trao thưởng</a>
+                    </li>
+                    <li>
+                        <a href="">Tất cả khuyến mãi</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu_item">
+                <a href="">
+                    <h4 class="menu_item-title">
+                        <i class="fa fa-piggy-bank"></i><p>Trả góp</p>
+                    </h4>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        <div class="main-footer">
+            <div class="footer1">
+                <ul>
+                    <li>Giới thiệu về công ty</li>
+                    <li>Câu hỏi thường gặp mua hàng</li>
+                    <li>Chính sách bảo mật</li>
+                    <li>Quy chế hoạt động</li>
+                    <li>Kiểm tra hóa đơn điện tử</li>
+                    <li>Tra cứu thông tin bảo hành</li>
+                </ul>
+            </div>
+            <div class="footer2">
+                <ul>
+                    <li>Tin tuyển dụng</li>
+                    <li>Tin khuyến mãi</li>
+                    <li>Hướng dẫn mua online</li>
+                    <li>Hướng dẫn mua trả góp</li>
+                    <li>Chính sách</li>
+                </ul>
+            </div>
+            <div class="footer3">
+                <ul>
+                    <li>Hệ thống cửa hàng</li>
+                    <li>Hệ thống bảo hành</li>
+                    <li>Kiểm tra hàng Apple chính hãng</li>
+                    <li>Giới thiệu máy đổi trả</li>
+                    <li>Chính sách đổi trả</li>
+                </ul>
+            </div>
+            <div class="footer4" style="text-align: center;">
+                <p>Tư vấn mua hàng (Miễn phí)</p>
+                <a href="">1800 6601</a>
+                <p style="font-weight: bold;">Hỗ trợ thanh toán: </p>
+                <img src="~/image/thanh toán 1.png" alt="">
+                <img src="~/image/thanh toán 2.png" alt="">
+            </div>
+            <div class="footer5" style="text-align: center;">
+                <p>Góp ý, khiếu nại dịch vụ (8h00-22h00)</p>
+                <a href="">1800 6601</a>
+                <p style="font-weight: bold;">Chứng nhận</p>
+                <img src="~/image/chứng nhận.png" alt="">
+                <p>Website cùng tập đoàn</p>
+                <img src="~/image/website cùng tập đoàn.png" alt="">
+            </div>
+        </div>
+        <div class="txt-footer">
+            © 2007 - 2020 Công Ty Cổ Phần Bán Lẻ Kỹ Thuật Số FPT / Địa chỉ: 261 - 263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh / GPĐKKD
+            số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012. GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018.
+            Điện thoại: (028)73023456. Email: fptshop@fpt.com.vn.
+        </div>
+    </footer>
+    <script>
+        function timkiem() {
+            var search = document.getElementById('Search').value;
+            if (search == "") {
+                alert("Vui lòng nhập thông tin sản phẩm cần tìm kiếm!");
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+﻿@model IEnumerable<btap.Models.thongtinmathang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/layout_admin.cshtml";
+}
+
+@*<h2><a style="text-decoration:none" href="~/Homeadmin/Index"><p class="p1">Trang chủ</p></a></h2>*@
+<h2 style="margin-left:15px">Danh sách sản phẩm</h2>
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<style>
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+<table class="table">
+    <tr>
+        @*@using (Html.BeginForm())
+            {
+                <p>
+                    Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                    <input type="submit" value="Search" />
+                </p>
+            }*@
+
+        <table>
+            <tr>
+                <th>
+                    @*@Html.ActionLink("Tên sản phẩm", "", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })*@
+                    Tên mặt hàng
+                </th>
+
+                <th>
+                    Màn hình
+                </th>
+                <th>
+                    Hệ điều hành
+                </th>
+                <th>
+                    Chip
+                </th>
+                <th>
+                    Camera
+                </th>
+                <th>
+                    Pin
+                </th>
+                <th>
+                    Ảnh
+                </th>
+                <th>
+                    RAM
+                </th>
+                <th>
+                    Bộ nhớ trong
+                </th>
+                <th>
+                    Công nghệ màn hình
+                </th>
+                <th>
+                    Năm ra mắt
+                </th>
+                <th>
+                    Giá
+                </th>
+                <th>
+                    Mã hãng sản xuất
+                </th>
+                <th>
+                    Tình trạng
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenmathang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.manhinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hedieuhanh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.chip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.camera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pin)
+            </td>
+            <td>
+                <img src="~/image/@item.anh" style="width: 120px; height:120px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bonhotrong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cnmanhinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.namramat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gia)
+                <p>đ</p>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mahangsanxuat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tinhtrang)
+            </td>
+            <td style="width:60px">
+                @Html.ActionLink("Sửa", "Edit", new { id = item.mamathang }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.mamathang }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.mamathang })
+            </td>
+        </tr>
+            }
+        </table>
+        <style>
+            table, th, td {
+                border: 1px solid #9f9494;
+            }
+
+            th {
+                text-align: center;
+                font-weight: 300;
+                font-size: 14px;
+                padding: 5px 5px;
+            }
+
+            table, td {
+                text-align: center;
+                font-weight: 300;
+            }
+
+            table {
+                border-collapse: collapse;
+                font-weight: 700;
+                margin: auto;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+
+                table img {
+                    padding: 5px 5px;
+                    object-fit: cover;
+                }
+        </style>

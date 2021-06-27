@@ -1,0 +1,22 @@
+﻿.content-gt ul li {
+    list-style-type: circle;
+    padding: 10px 10px;
+    font-size: 14px;
+}
+
+.content-gt p {
+    padding: 10px 10px;
+    font-size: 14px
+}
+
+.content-gt {
+    background-color: white;
+    text-align: justify;
+    box-shadow: 0px 0px 4px 4px #cecece;
+    padding: 20px;
+}
+
+.content {
+    width: 100%;
+    margin-top: 20px;
+}

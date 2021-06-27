@@ -1,0 +1,57 @@
+﻿@model btap.Models.tintuc
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/layout_admin.cshtml";
+}
+
+<h2 style="margin-left:20px">Sửa tin tức</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.matin)
+
+        <div class="form-group">
+            <p>Tiêu đề</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tieude, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.tieude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Ảnh tin</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.anhtin, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                @Html.ValidationMessageFor(model => model.anhtin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Nội dung</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.noidung, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.noidung, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<style>
+    .form-group p {
+        margin-left: 15px
+    }
+</style>
+<div style="margin-left:20px;">
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</div>
